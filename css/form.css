@@ -28,7 +28,7 @@ p {
 	font-weight: 100;
 	line-height: 20px;
 	letter-spacing: 0.5px;
-	margin: 20px 0 30px;
+	margin: 20px 0 10px;
 }
 
 span {
@@ -88,6 +88,16 @@ input {
 	width: 100%;
 }
 
+.errorMsg{
+    color: red;
+    font-size: 18px;
+}
+
+.successMsg{
+    color: green;
+    font-size: 18px;
+}
+
 .container {
 	background-color: #fff;
 	border-radius: 10px;
@@ -97,7 +107,7 @@ input {
 	overflow: hidden;
 	width: 768px;
 	max-width: 100%;
-	min-height: 480px;
+	min-height: 500px;
 	margin: auto;
 	margin-top: 10%;
 	margin-bottom: 10%;

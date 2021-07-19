@@ -1,38 +1,40 @@
 <head>
     <title>SitDown | MSG Cooperation &copy</title>
     <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/836606866918080603/849311038079107122/logo_size.png" />
-    <link rel="stylesheet" type="text/css" href="..\finalYearProject\css\form.css">
-    <script src="..\finalYearProject\js\app.js"></script>
+    <link rel="stylesheet" type="text/css" href="..\sitdown_\css\form.css">
+    <script src="..\sitdown_\js\app.js"></script>
 </head>
 <?php
-    if(isset($_POST["merchant"])){
-        echo "<script>alert('registered merchant')</script>";
-    }else if(isset($_POST["customer"])){
-        echo "<script>alert('registered customer')</script>";
-    }
+    echo "<script>window.onload = function() {changeForm();};</script>"; //call js changeForm() function  
 ?>
 <body style="background-color: #1a202c">
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
 		<form method="POST">
+			<!-- Customer register form -->
 			<h1>Join us now!</h1><br>
-            <input type="text" placeholder="Name" name="name" required>
-			<input type="email" placeholder="Email" name="email" required>
-            <input type="text" placeholder="Phone Number" name="phone_no" required>
-            <input type="password" placeholder="Password" required>
-			<button type="submit" name="customer"><input type="submit" style="display: none" name="customer">Sign Up</button>
+            <input type="text" id="cusRegName" placeholder="Name" name="name" required>
+			<input type="email" id="cusRegEmail" placeholder="Email" name="email" required>
+            <input type="text" id="cusRegPhone" placeholder="Phone Number" name="phone_no" required>
+            <input type="password" id="cusRegPass" placeholder="Password" required>
+			<input type="password" id="cusRegConPass" placeholder="Confirm Password" required>
+			<button type="button" onclick="customerRegister()" name="customer">Sign Up</button>
             <p>Already have an account? <u><a href="login.php">Login</a></u></p>
+			<span id="customerRegMsg" class="errorMsg"></span>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
 		<form method="POST">
+			<!-- Merchant register form -->
 			<h1>Join us now!</h1><br>
-			<input type="text" placeholder="Name" name="name" required>
-			<input type="email" placeholder="Email" name="email" required>
-            <input type="text" placeholder="Phone Number" name="phone_no" required>
-            <input type="password" placeholder="Password" required>
-			<button type="submit" name="merchant"><input type="submit" style="display: none" name="merchant">Sign Up</button>
+			<input type="text" id="merRegName" placeholder="Name" name="name" required>
+			<input type="email" id="merRegEmail" placeholder="Email" name="email" required>
+            <input type="text" id="merRegPhone" placeholder="Phone Number" name="phone_no" required>
+            <input type="password" id="merRegPass" placeholder="Password" required>
+			<input type="password" id="merRegConPass" placeholder="Confirm Password" required>
+			<button type="button" onclick="merchantRegister()" name="merchant">Sign Up</button>
             <p>Already have an account? <u><a href="login.php">Login</a></u></p>
+			<span id="merchantRegMsg" class="errorMsg"></span>
 		</form>
 	</div>
 	<div class="overlay-container">

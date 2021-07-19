@@ -2,8 +2,15 @@
     <title>SitDown | MSG Cooperation &copy</title>
     <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/836606866918080603/849311038079107122/logo_size.png" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="..\finalYearProject\css\style.css">
+    <link rel="stylesheet" type="text/css" href="..\sitdown_\css\style.css">
     <script src="..\finalYearProject\js\app.js"></script>
+    <?php 
+    session_start();
+    if(isset($_GET["type"]) == "logout"){ //if user want to logout
+        session_destroy(); //destroy all session
+        header("Location: index.php"); //user will be redirected to index.php
+    }
+    ?>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -32,12 +39,21 @@
             <a class="dropdown-item" href="#">Something else here</a>
             </div>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="login.php">Login</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="register.php">Register</a>
-        </li>
+        <?php
+        if(isset($_SESSION["userId"])){
+            echo '<li class="nav-item">
+                        <a class="nav-link" href="index.php?type=logout">Logout</a>
+                </li>';
+        }
+        else{
+            echo '<li class="nav-item">
+                    <a class="nav-link" href="login.php">Login</a>
+                </li>';
+            echo '<li class="nav-item">
+                    <a class="nav-link" href="register.php">Register</a>
+                </li>';
+        }
+        ?>
         </ul>
         <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
